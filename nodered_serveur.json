@@ -1,0 +1,923 @@
+[
+    {
+        "id": "0b4736e7911db23d",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7dbb746282af85a5",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "eu1.cloud.thethings.network",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "5806b56548019e0e",
+        "type": "ui_tab",
+        "name": "Tableau De Bord",
+        "icon": "",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "028b2c2de722997e",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "f3d2952749a049ce",
+        "type": "ui_group",
+        "name": "Fréquence Cardiaque",
+        "tab": "5806b56548019e0e",
+        "order": 1,
+        "disp": true,
+        "width": "8",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "561b9b40619bb611",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "ecg_data",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "7a3b260ddfe98f9c",
+        "type": "ui_group",
+        "name": "Qualité de signal",
+        "tab": "5806b56548019e0e",
+        "order": 2,
+        "disp": true,
+        "width": "8",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "0ef11046fb356c60",
+        "type": "ui_group",
+        "name": "Surveillance Cardiaque",
+        "tab": "5806b56548019e0e",
+        "order": 3,
+        "disp": true,
+        "width": "8",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "784bbb176678ace1",
+        "type": "ui_group",
+        "name": "Historique ECG",
+        "tab": "5806b56548019e0e",
+        "order": 4,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4cb569c28a043455",
+        "type": "mqtt in",
+        "z": "0b4736e7911db23d",
+        "name": "mqtt from TTN",
+        "topic": "v3/project-boudra-diedhiou@ttn/devices/eui-boudra-diedhiou-ecg/up",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7dbb746282af85a5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 350,
+        "y": 120,
+        "wires": [
+            [
+                "7f67c1362d8de3de",
+                "3279fe470ad13fbd",
+                "c7477532246ddeb1"
+            ]
+        ]
+    },
+    {
+        "id": "7f67c1362d8de3de",
+        "type": "function",
+        "z": "0b4736e7911db23d",
+        "name": "Frequence Cardiaque",
+        "func": "var o;\nvar msg1 = {};\nvar msg2 ;\no = msg.payload['uplink_message']['decoded_payload']\nmsg1.payload = o['bytes'][0];\nreturn [msg1 , msg1]; ",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 40,
+        "wires": [
+            [
+                "45f158e42c434dd8"
+            ],
+            [
+                "c4c5c25e3e29a3b4",
+                "8a1950c48c194d56",
+                "1418574f7a543dac"
+            ]
+        ]
+    },
+    {
+        "id": "c4c5c25e3e29a3b4",
+        "type": "ui_chart",
+        "z": "0b4736e7911db23d",
+        "name": "",
+        "group": "f3d2952749a049ce",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Evolution",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "200",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 960,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8a1950c48c194d56",
+        "type": "ui_gauge",
+        "z": "0b4736e7911db23d",
+        "name": "Battements par minutes ",
+        "group": "f3d2952749a049ce",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Rythme Cardiaque",
+        "label": "BPM",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "130",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1010,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e091bcd58daf181b",
+        "type": "mysql",
+        "z": "0b4736e7911db23d",
+        "mydb": "561b9b40619bb611",
+        "name": "mysql",
+        "x": 1130,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1418574f7a543dac",
+        "type": "function",
+        "z": "0b4736e7911db23d",
+        "name": "Insert ",
+        "func": "msg.topic = \"INSERT INTO freq (Date,BPM) VALUES (NOW(), \"+ msg.payload +\");\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 100,
+        "wires": [
+            [
+                "e091bcd58daf181b"
+            ]
+        ]
+    },
+    {
+        "id": "3279fe470ad13fbd",
+        "type": "function",
+        "z": "0b4736e7911db23d",
+        "name": "Monitoring LoRa",
+        "func": "var msg1 = {};\nvar msg2 = {};\nvar SNR = msg.payload['uplink_message']['rx_metadata'][0]['snr']\nvar RSSI = msg.payload['uplink_message']['rx_metadata'][0]['rssi']\nmsg1.payload = SNR;\nmsg2.payload = RSSI ;\nreturn [msg1 , msg2]; ",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 100,
+        "wires": [
+            [
+                "7a760a1d7c50ea2e"
+            ],
+            [
+                "63788868f9db9213"
+            ]
+        ]
+    },
+    {
+        "id": "7a760a1d7c50ea2e",
+        "type": "ui_gauge",
+        "z": "0b4736e7911db23d",
+        "name": "",
+        "group": "7a3b260ddfe98f9c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "SNR",
+        "label": "dB",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "15",
+        "colors": [
+            "#e01b24",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "63788868f9db9213",
+        "type": "ui_gauge",
+        "z": "0b4736e7911db23d",
+        "name": "",
+        "group": "7a3b260ddfe98f9c",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "RSSI",
+        "label": "dBm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "-100",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "fdb3412b672d4753",
+        "type": "ui_numeric",
+        "z": "0b4736e7911db23d",
+        "name": "",
+        "label": "Seuil Max",
+        "tooltip": "",
+        "group": "0ef11046fb356c60",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": false,
+        "topic": "max",
+        "topicType": "global",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "150",
+        "step": "5",
+        "className": "",
+        "x": 120,
+        "y": 40,
+        "wires": [
+            [
+                "e211478b7bb8d15f"
+            ]
+        ]
+    },
+    {
+        "id": "45f158e42c434dd8",
+        "type": "switch",
+        "z": "0b4736e7911db23d",
+        "name": "Si Sup",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "max",
+                "vt": "global"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 930,
+        "y": 40,
+        "wires": [
+            [
+                "4e6f10d247ef7e59",
+                "2fbaff1fb538c761"
+            ]
+        ]
+    },
+    {
+        "id": "4e6f10d247ef7e59",
+        "type": "function",
+        "z": "0b4736e7911db23d",
+        "name": "Insert Sup",
+        "func": "msg.topic = \"INSERT INTO freq_sup (Date,BPM) VALUES (NOW(), \"+ msg.payload +\");\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 60,
+        "wires": [
+            [
+                "c1f9b19d1dd94445"
+            ]
+        ]
+    },
+    {
+        "id": "c1f9b19d1dd94445",
+        "type": "mysql",
+        "z": "0b4736e7911db23d",
+        "mydb": "561b9b40619bb611",
+        "name": "mysql",
+        "x": 1330,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e211478b7bb8d15f",
+        "type": "change",
+        "z": "0b4736e7911db23d",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "max",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c7477532246ddeb1",
+        "type": "function",
+        "z": "0b4736e7911db23d",
+        "name": "Surveillance",
+        "func": "msg.topic = \"SELECT * FROM freq_sup ;\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 220,
+        "wires": [
+            [
+                "29a165147135da54"
+            ]
+        ]
+    },
+    {
+        "id": "29a165147135da54",
+        "type": "mysql",
+        "z": "0b4736e7911db23d",
+        "mydb": "561b9b40619bb611",
+        "name": "mysql",
+        "x": 710,
+        "y": 220,
+        "wires": [
+            [
+                "2c2cd41b4f238256"
+            ]
+        ]
+    },
+    {
+        "id": "2c2cd41b4f238256",
+        "type": "ui_table",
+        "z": "0b4736e7911db23d",
+        "group": "0ef11046fb356c60",
+        "name": "Historique Seuil Depasser",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 950,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "2fbaff1fb538c761",
+        "type": "ui_toast",
+        "z": "0b4736e7911db23d",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Seuil maximum dépasser ",
+        "name": "Notif",
+        "x": 1110,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "97c87fbb934a3d91",
+        "type": "ui_text_input",
+        "z": "0b4736e7911db23d",
+        "name": "",
+        "label": "Horodatage",
+        "tooltip": "",
+        "group": "784bbb176678ace1",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "datetime-local",
+        "delay": "2000",
+        "topic": "horo_debut",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "global",
+        "x": 130,
+        "y": 460,
+        "wires": [
+            [
+                "b2a8fa2e0cc5de05"
+            ]
+        ]
+    },
+    {
+        "id": "407bb4695de041ce",
+        "type": "ui_text_input",
+        "z": "0b4736e7911db23d",
+        "name": "",
+        "label": "Horodatage",
+        "tooltip": "",
+        "group": "784bbb176678ace1",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "datetime-local",
+        "delay": 300,
+        "topic": "horo_fin",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "global",
+        "x": 130,
+        "y": 520,
+        "wires": [
+            [
+                "e1587bdb4b120726"
+            ]
+        ]
+    },
+    {
+        "id": "8b676e1686103419",
+        "type": "function",
+        "z": "0b4736e7911db23d",
+        "name": "Historique",
+        "func": "msg.topic = \"SELECT * FROM freq WHERE Date BETWEEN '\"+msg.payload+\"';\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 440,
+        "wires": [
+            [
+                "dcd83fe7765fd9df"
+            ]
+        ]
+    },
+    {
+        "id": "31c59a1dd6d00b4e",
+        "type": "change",
+        "z": "0b4736e7911db23d",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "T",
+                "fromt": "str",
+                "to": " ",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 440,
+        "wires": [
+            [
+                "6004259664cb0123"
+            ]
+        ]
+    },
+    {
+        "id": "dcd83fe7765fd9df",
+        "type": "mysql",
+        "z": "0b4736e7911db23d",
+        "mydb": "561b9b40619bb611",
+        "name": "mysql",
+        "x": 1190,
+        "y": 500,
+        "wires": [
+            [
+                "9346ece511f47457"
+            ]
+        ]
+    },
+    {
+        "id": "9346ece511f47457",
+        "type": "ui_table",
+        "z": "0b4736e7911db23d",
+        "group": "784bbb176678ace1",
+        "name": "Historique",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 1340,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "b2a8fa2e0cc5de05",
+        "type": "moment",
+        "z": "0b4736e7911db23d",
+        "name": "",
+        "topic": "",
+        "input": "",
+        "inputType": "msg",
+        "inTz": "America/New_York",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "",
+        "locale": "en-US",
+        "output": "",
+        "outputType": "msg",
+        "outTz": "Europe/Paris",
+        "x": 360,
+        "y": 460,
+        "wires": [
+            [
+                "31c59a1dd6d00b4e"
+            ]
+        ]
+    },
+    {
+        "id": "6004259664cb0123",
+        "type": "change",
+        "z": "0b4736e7911db23d",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": ".000Z",
+                "fromt": "str",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 500,
+        "wires": [
+            [
+                "ef92b38945e5a839"
+            ]
+        ]
+    },
+    {
+        "id": "dd3acbcc39b9f309",
+        "type": "change",
+        "z": "0b4736e7911db23d",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "T",
+                "fromt": "str",
+                "to": " ",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 600,
+        "wires": [
+            [
+                "0f3766cae1fee138"
+            ]
+        ]
+    },
+    {
+        "id": "e1587bdb4b120726",
+        "type": "moment",
+        "z": "0b4736e7911db23d",
+        "name": "",
+        "topic": "",
+        "input": "",
+        "inputType": "msg",
+        "inTz": "America/New_York",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "",
+        "locale": "en-US",
+        "output": "",
+        "outputType": "msg",
+        "outTz": "Europe/Paris",
+        "x": 360,
+        "y": 520,
+        "wires": [
+            [
+                "dd3acbcc39b9f309"
+            ]
+        ]
+    },
+    {
+        "id": "0f3766cae1fee138",
+        "type": "change",
+        "z": "0b4736e7911db23d",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": ".000Z",
+                "fromt": "str",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 560,
+        "wires": [
+            [
+                "ef92b38945e5a839"
+            ]
+        ]
+    },
+    {
+        "id": "a1104616662cbd25",
+        "type": "debug",
+        "z": "0b4736e7911db23d",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1320,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "ef92b38945e5a839",
+        "type": "join",
+        "z": "0b4736e7911db23d",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "' AND '",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 950,
+        "y": 560,
+        "wires": [
+            [
+                "8b676e1686103419"
+            ]
+        ]
+    }
+]
